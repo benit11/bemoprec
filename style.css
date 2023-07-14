@@ -1,0 +1,52 @@
+    body{
+    background: url("Background.png");
+    background-size: cover;
+    }
+
+    .login-form {
+    margin: 3em auto;
+    max-width: 500px;
+    padding: 20px;
+    }
+
+    .login-form .box-login {
+    background-color: #fff;
+    padding: 20px;
+    color: #555;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px #aaa;
+    }
+
+    .login-form .box-login .form-control {
+    border-color: transparent;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    border-radius: 0;
+    }
+
+    .login-form .box-login .form-control:focus {
+    box-shadow: none;
+    border-bottom: 2px solid #000000;
+    }
+
+    .login-form .box-login .title {
+    font-family: sans-serif;
+    font-size: 35px;
+    margin-top: 2.5em;
+    margin-bottom: 25px;
+    color: #0e0f0e;
+    text-align: center;
+    }
+
+
+    .login-form .box-login .btn-primary {
+    box-shadow: 0 5px 3px -3px #aaa;
+    }
+
+    .login-form .box-login .footer-login {
+    margin-top: 2em;
+    border-top: 1px dashed #ddd;
+    padding: 20px;
+    padding-bottom: 0;
+    text-align: center;
+}
