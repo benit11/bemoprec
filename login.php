@@ -32,47 +32,30 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script >
-function sendData() {
-            var xhr = new XMLHttpRequest();
-            var url = "https://bem.petra.ac.id/proyekOpenrec2023/API/login.php";
 
-            var data = JSON.stringify({
-                nrp: document.getElementById("nrp").value,
-                password: document.getElementById("pass").value,
-            });
-
-            xhr.open("POST", url, true);
-            xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-            xhr.onload = function () {               
-                console.log (this.responseText);
-            };
-
-            xhr.send(data);
-            return false;
+$("#loginForm").submit(function(event)
+{
+    event.preventDefault();
+    $.ajax({
+        type: "POST",
+        url: "https://bem.petra.ac.id/proyekOpenrec2023/API/login.php",
+        data:({
+            nrp : $('#nrp').val(),
+            password: $('#pass').val()
+        }),
+        success: function(result)
+        {
+            if(result=='1')
+            {
+                window.location = 'http://www.google.com/'; //just to show that it went through
+            }
+            else
+            {
+                $('#result').empty().addClass('error')
+                    .append('Something is wrong.');
+            }
         }
-// $("#loginForm").submit(function(event)
-// {
-//     event.preventDefault();
-//     $.ajax({
-//         type: "POST",
-//         url: "https://bem.petra.ac.id/proyekOpenrec2023/API/login.php",
-//         data:({
-//             nrp : $('#nrp').val(),
-//             password: $('#pass').val()
-//         }),
-//         success: function(result)
-//         {
-//             if(result=='1')
-//             {
-//                 window.location = 'http://www.google.com/'; //just to show that it went through
-//             }
-//             else
-//             {
-//                 $('#result').empty().addClass('error')
-//                     .append('Something is wrong.');
-//             }
-//         }
-//     });
-//     return false;
-// })
+    });
+    return false;
+})
 </script>
